@@ -1,0 +1,24 @@
+<% if flash[:notice] %>
+  <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+  <% if @book.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <h6>errors prohibited this book from being saved:</h6>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  </div>
+  <% end %>
+
+
+<b>Title</b>:<%= @book.title %>
+<b>Boby</b>:<%= @book.body %>
+
+
+ <%= link_to "Edit", edit_book_path(@book) %>
+ <%= link_to "Back", '/books' %>
